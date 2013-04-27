@@ -1,5 +1,37 @@
 ﻿module typesdemo
 
+(* Classes *)
+
+type Animal =
+    abstract member Speak : unit -> string
+
+type Dog() =
+    interface Animal with
+        member this.Speak() = "woof"
+
+let dogAsAnimal = new Dog() :> Animal
+printfn "%s" (dogAsAnimal.Speak())
+
+let speak (a:Animal) = printfn "%s" (a.Speak())
+speak (new Dog())
+
+type Cat() =
+    static let sound = "meow"
+    member this.Speak() = (this :> Animal).Speak()
+    interface Animal with
+        member this.Speak() = sound
+
+printfn "%s" ((new Cat()).Speak())
+
+(* Object expression *)
+speak {new Animal with member this.Speak() = "moo"}
+
+
+
+
+
+
+
 (* Records *)
 type Person = {firstName:string; lastName:string; nickName: string; abides:bool}
 let dude = {firstName = "Jeffrey"; lastName = "Lebowski"; nickName = "The dude"; abides = true}
