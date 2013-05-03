@@ -1,5 +1,15 @@
 ﻿module typesdemo
 
+(* Units of measure *)
+[<Measure>] type sec
+let x = 12<sec>
+[<Measure>] type m
+let y = 145<m>
+// y/x + 3
+
+
+
+
 (* Classes *)
 
 type Animal =
@@ -55,3 +65,24 @@ let bob = {name = "Bob"; age = 17}
 bob.age <- bob.age + 1
 
 
+
+
+(* Discriminated unions *)
+type 'a Expression =
+    | Constant of 'a
+    | Add of ('a Expression) * ('a Expression)
+
+let one = Constant(1)
+let two = Constant(2)
+
+let sum = Add(one, two)
+
+let rec calc exp =
+    match exp with
+    | Constant(x)   -> x
+    | Add(x,y)      -> (calc x) + (calc y)
+
+calc sum
+
+
+// http://infsharpmajor.wordpress.com/2013/04/24/if-google-would-be-looking-to-hire-f-programmers-part-1/
