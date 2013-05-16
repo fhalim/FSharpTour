@@ -86,3 +86,11 @@ calc sum
 
 
 // http://infsharpmajor.wordpress.com/2013/04/24/if-google-would-be-looking-to-hire-f-programmers-part-1/
+
+
+(* Inlining *)
+
+let inline divide a b = a / b
+
+divide 1 2
+divide 1.0 2.0
