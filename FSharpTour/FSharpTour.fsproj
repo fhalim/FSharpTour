@@ -50,6 +50,7 @@
     <None Include="02-Collections.fsx" />
     <None Include="03-Patternmatching.fsx" />
     <Compile Include="04-Types.fs" />
+    <Compile Include="05-ComputationExpressions.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>
