@@ -36,6 +36,12 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FSharp.Data">
+      <HintPath>..\lib\FSharp.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Data.DesignTime">
+      <HintPath>..\lib\FSharp.Data.DesignTime.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
@@ -51,7 +57,9 @@
     <None Include="03-Patternmatching.fsx" />
     <Compile Include="04-Types.fs" />
     <Compile Include="05-ComputationExpressions.fs" />
+    <Compile Include="06-TypeProviders.fs" />
     <Compile Include="Program.fs" />
+    <None Include="stockinfo.csv" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
