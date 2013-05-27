@@ -48,7 +48,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -58,8 +60,10 @@
     <Compile Include="04-Types.fs" />
     <Compile Include="05-ComputationExpressions.fs" />
     <Compile Include="06-TypeProviders.fs" />
+    <Compile Include="07-AsyncEtc.fs" />
     <Compile Include="Program.fs" />
     <None Include="stockinfo.csv" />
+    <None Include="sample-glossary.json" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

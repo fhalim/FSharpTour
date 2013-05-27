@@ -7,3 +7,9 @@ type Stocks = CsvProvider<"stockinfo.csv">
 let mystockData = Stocks.Load("stockinfo.csv")
 
 printfn "Average volume in the file is: %f" (mystockData.Data |> Seq.map (fun r-> r.Volume) |> Seq.map (fun v-> float v) |> Seq.average)
+
+
+type Glossary = JsonProvider<"sample-glossary.json">
+let myGlossary = Glossary.Load "sample-glossary.json"
+printfn "Title: %s" myGlossary.Glossary.Title
+myGlossary.Glossary.GlossDiv.GlossList.GlossEntry.GlossDef.GlossSeeAlso |> Seq.iter (fun d-> printfn "See also: %s" d)

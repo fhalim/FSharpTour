@@ -36,3 +36,11 @@ mynumfunc()
 
 
 do (1+1 |> ignore)
+
+open System.IO
+let readfile (fileName:string) =
+    use sr = new StreamReader(fileName)
+    let length = sr.ReadToEnd().Length
+    printfn "Length is %d" length
+
+readfile @"c:\windows\DPINST.LOG"
