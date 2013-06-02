@@ -34,10 +34,6 @@ mainForm.MouseMove
     |> Event.add (fun e-> label.Text <- sprintf "At x=%i" e.X)
 
 
-
-
-
-
 (* Agents *)
 open Microsoft.FSharp.Control
 type PingPongMessage =

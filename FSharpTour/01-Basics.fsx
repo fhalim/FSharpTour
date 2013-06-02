@@ -4,7 +4,9 @@ let x = 12;;
 let y = 5
 
 // Cannot do this
-x = 13;;
+// x = 13;;
+
+let a, b, c = (1, 2, 3);;
 
 let mutable mx = 12;;
 mx <- 13;;
@@ -15,6 +17,7 @@ printfn "%d" (x + y);;
 let aunit = printfn "Hello"
 
 let add x y = x + y
+printfn "%d" (add x y);;
 add x y |> printfn "%d";;
 y |> add x |> printfn "%d";;
 
@@ -25,22 +28,27 @@ Console.WriteLine "Hello world"
 Console.WriteLine("Hello, {0}", "Bob")
 
 
+
+
+
+
+
 // Higher order function
-let doStuffAndDouble fn x = fn x * 2
+let double x = x * 2
+let doStuffAndDouble fn x = fn x |> double
 doStuffAndDouble (fun x-> x + 2) 5
-doStuffAndDouble String.length "bob"
+
+let doStuffAndDoubleCleaner fn = fn >> double
+doStuffAndDoubleCleaner String.length "bob"
 
 let mynum1 = 5
 let mynumfunc() = 5
 mynumfunc()
 
-
-do (1+1 |> ignore)
-
 open System.IO
-let readfile (fileName:string) =
+let printLength (fileName:string) =
     use sr = new StreamReader(fileName)
     let length = sr.ReadToEnd().Length
     printfn "Length is %d" length
 
-readfile @"c:\windows\DPINST.LOG"
+printLength @"c:\windows\DPINST.LOG"
